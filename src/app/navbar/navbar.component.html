@@ -10,8 +10,8 @@
         <a class="nav-link" routerLink="/category-list">Catégories de films</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/movies" *ngIf="true">Se connecter</a>
-        <a class="nav-link" routerLink="/login" *ngIf="false">Se déconnecter</a>
+        <a class="nav-link" routerLink="/login" *ngIf="true">Se connecter</a>
+        <a class="nav-link" *ngIf="false">Se déconnecter</a>
       </li>
     </ul>
   </div>
