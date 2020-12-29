@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Cinema</a>
+  <a class="navbar-brand" routerLink="/category-list">Cinema</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,11 +7,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/home">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/category-list">Catégories de films</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/movies" *ngIf="false">Se connecter</a>
-        <a class="nav-link" routerLink="/login" *ngIf="true" (click)="logout()">Se déconnecter</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/movies" *ngIf="true">Se connecter</a>
+        <a class="nav-link" routerLink="/login" *ngIf="false">Se déconnecter</a>
       </li>
     </ul>
   </div>
