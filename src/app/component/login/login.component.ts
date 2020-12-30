@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../../model/User';
+import { User } from '../../model/user';
 import { UserService } from '../../service/user/user.service';
 
 @Component({
@@ -10,10 +10,9 @@ import { UserService } from '../../service/user/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  username!: string;
+  email!: string;
   password!: string;
   private user!: User;
-  private error!: string;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -21,22 +20,12 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): void {
-    const user = new User(this.username, this.password);
+    const userDetails = new User(this.email, this.password);
 
-    this.userService.login(user).subscribe(
+    this.userService.login(userDetails)
+      .subscribe(
       (userFound) => {
         this.user = userFound;
-      },
-      (error) => {
-        this.error = error.messages;
-      },
-      () => {
-        if (this.error !== undefined) {
-          console.log('Login success.');
-          this.router.navigate(['admin/movie-list']).then(() => {});
-        } else {
-          console.log('Error : ' + this.error);
-        }
       });
   }
 }
