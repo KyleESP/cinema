@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { User } from '../models/User';
+import { User} from '../../model/User';
 import { Observable } from 'rxjs';
 
 const    ENDPOINT = 'http://localhost:8080/user';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
 
   constructor(private httpClient: HttpClient) { }

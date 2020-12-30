@@ -5,11 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MovieListComponent } from './movie-list/movie-list.component';
-import { CategoryListComponent } from './category-list/category-list.component';
-import { LoginComponent } from './login/login.component';
-import { UserService } from './services/UserService';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { MovieListComponent } from './component/movie-list/movie-list.component';
+import { CategoryListComponent } from './component/category-list/category-list.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { UserService } from './services/UserService';
     HttpClientModule
   ],
   providers: [
-    UserService
   ],
   bootstrap: [AppComponent]
 })
