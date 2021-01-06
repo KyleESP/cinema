@@ -21,10 +21,11 @@ export class UserService {
   login(user: User): Observable<User> {
     const url = this.userUrl + '/login';
 
-    return this.httpClient.post<User>(url, user, this.httpOptions).pipe(
-      tap(() => this.messageService.add('Connexion réussie !', 'success')),
-      catchError(this.handleError<User>())
-    );
+    return this.httpClient.post<User>(url, user, this.httpOptions)
+      .pipe(
+        tap(() => this.messageService.add('Connexion réussie !', 'success')),
+        catchError(this.handleError<User>())
+      );
   }
 
   /**
