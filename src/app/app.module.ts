@@ -6,19 +6,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { MovieListComponent } from './component/movie-list/movie-list.component';
+import { MoviesComponent } from './component/movies/movies.component';
 import { LoginComponent } from './component/login/login.component';
 import { MessagesComponent } from './component/messages/messages.component';
 import { CategoriesComponent } from './component/categories/categories.component';
+import { CategoryMoviesComponent } from './component/category-movies/category-movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    MovieListComponent,
+    MoviesComponent,
     LoginComponent,
     MessagesComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    CategoryMoviesComponent
   ],
   imports: [
     BrowserModule,
