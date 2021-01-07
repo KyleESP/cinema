@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../model/movie';
 import { MovieService } from '../../service/service/movie.service';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-movies',
@@ -9,12 +10,13 @@ import { MovieService } from '../../service/service/movie.service';
 })
 export class MoviesComponent implements OnInit {
 
-  @Input() movies!: Movie[];
+  @Input() movies?: Movie[];
+  @Input() movies$?: Observable<Movie[]>;
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    if (this.movies === undefined) {
+    if (this.movies === undefined && this.movies$ === undefined) {
       this.getMovies();
     }
   }

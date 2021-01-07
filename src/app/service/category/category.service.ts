@@ -10,7 +10,7 @@ import { Category } from '../../model/category';
 })
 export class CategoryService {
 
-  private categoryUrl = 'http://localhost:8080/category';
+  private categoriesUrl = 'http://localhost:8080/category';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,7 @@ export class CategoryService {
   constructor(private httpClient: HttpClient, private messageService: MessageService) { }
 
   getCategories(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(this.categoryUrl)
+    return this.httpClient.get<Category[]>(this.categoriesUrl)
       .pipe(
         catchError(this.handleError<Category[]>())
       );

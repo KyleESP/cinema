@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../message/message.service';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 import { Movie } from '../../model/movie';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { Movie } from '../../model/movie';
 })
 export class MovieService {
 
-  private movieUrl = 'http://localhost:8080/movie';
+  private moviesUrl = 'http://localhost:8080/movie';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,7 @@ export class MovieService {
   constructor(private httpClient: HttpClient, private messageService: MessageService) { }
 
   getMovies(): Observable<Movie[]> {
-    const url = this.movieUrl;
+    const url = this.moviesUrl;
 
     return this.httpClient.get<Movie[]>(url)
       .pipe(
@@ -28,7 +28,20 @@ export class MovieService {
   }
 
   getMoviesByCategoryId(categoryId: string | null): Observable<Movie[]> {
-    const url = this.movieUrl + (categoryId !== null ? `/by-category?categoryId=${categoryId}` : '');
+    const url = `${this.moviesUrl}/by-category?categoryId=${categoryId}`;
+
+    return this.httpClient.get<Movie[]>(url)
+      .pipe(
+        catchError(this.handleError<Movie[]>())
+      );
+  }
+
+  searchMovies(term: string): Observable<Movie[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+
+    const url = `${this.moviesUrl}?term=${term}`;
 
     return this.httpClient.get<Movie[]>(url)
       .pipe(

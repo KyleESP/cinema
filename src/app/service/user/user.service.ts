@@ -10,7 +10,7 @@ import { MessageService } from '../message/message.service';
 })
 export class UserService {
 
-  private userUrl = 'http://localhost:8080/user';
+  private usersUrl = 'http://localhost:8080/user';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,7 @@ export class UserService {
   constructor(private httpClient: HttpClient, private messageService: MessageService) { }
 
   login(user: User): Observable<User> {
-    const url = this.userUrl + '/login';
+    const url = this.usersUrl + '/login';
 
     return this.httpClient.post<User>(url, user, this.httpOptions)
       .pipe(

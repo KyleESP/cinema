@@ -1,14 +1,12 @@
-<div *ngIf="movies.length; else no_movies" class="list-group">
-  <div *ngFor="let movie of movies" href="#" class="list-group-item">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{movie.title}}</h5>
-      <small>Durée : {{movie.duration}} | Date de sortie : {{movie.releaseDate}}</small>
-    </div>
-    <p class="mb-1">Budget : {{movie.budget}} | Montant de la recette : {{movie.revenueAmount}}</p>
+<div *ngIf="movies && movies.length; else no_movies" class="list-group">
+  <div *ngFor="let movie of movies" class="list-group-item">
+    <app-movie-item [movie]="movie"></app-movie-item>
   </div>
 </div>
 <ng-template #no_movies>
-  <div>
-    Il n'y a aucun film dans cette catégorie.
+  <div *ngIf="movies$ && (movies$ | async)?.length" class="list-group">
+    <div *ngFor="let movie of movies$ | async" class="list-group-item">
+      <app-movie-item [movie]="movie"></app-movie-item>
+    </div>
   </div>
 </ng-template>
