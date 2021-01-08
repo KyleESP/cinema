@@ -8,7 +8,7 @@ import { Movie } from '../../model/movie';
 })
 export class MovieItemComponent {
 
-  @Input() movie: Movie;
+  @Input() movie!: Movie;
 
   constructor() { }
 }

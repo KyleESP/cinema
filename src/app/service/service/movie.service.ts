@@ -41,8 +41,8 @@ export class MovieService {
       return of([]);
     }
 
-    const url = `${this.moviesUrl}?term=${term}`;
-
+    const url = `${this.moviesUrl}/by-term?term=${term}`;
+    console.log(url);
     return this.httpClient.get<Movie[]>(url)
       .pipe(
         catchError(this.handleError<Movie[]>())
