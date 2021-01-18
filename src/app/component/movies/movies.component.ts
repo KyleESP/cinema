@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../model/movie';
-import { MovieService } from '../../service/service/movie.service';
-import {Observable} from "rxjs";
+import { MovieService } from '../../service/movie/movie.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
