@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../model/user';
-import { UserService } from '../../service/user/user.service';
+import { AuthenticationService } from '../../service/authentication/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,20 +12,19 @@ export class LoginComponent implements OnInit {
 
   email!: string;
   password!: string;
-  private user!: User;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router) {
+    // redirect to home if already logged in
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']).then(null);
+    }
+  }
 
   ngOnInit(): void {
   }
 
   submit(): void {
     const userDetails = new User(this.email, this.password);
-
-    this.userService.login(userDetails)
-      .subscribe(
-      (userFound) => {
-        this.user = userFound;
-      });
+    this.authenticationService.login(userDetails);
   }
 }

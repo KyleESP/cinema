@@ -13,6 +13,7 @@ import { CategoriesComponent } from './component/categories/categories.component
 import { CategoryMoviesComponent } from './component/category-movies/category-movies.component';
 import { MovieSearchComponent } from './component/movie-search/movie-search.component';
 import { MovieItemComponent } from './component/movie-item/movie-item.component';
+import { MoviesAdminComponent } from './component/movies-admin/movies-admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MovieItemComponent } from './component/movie-item/movie-item.component'
     CategoriesComponent,
     CategoryMoviesComponent,
     MovieSearchComponent,
-    MovieItemComponent
+    MovieItemComponent,
+    MoviesAdminComponent
   ],
   imports: [
     BrowserModule,

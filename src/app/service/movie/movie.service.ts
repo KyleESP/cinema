@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../message/message.service';
 import { Observable, of } from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Movie } from '../../model/movie';
 
 @Injectable({
@@ -42,7 +42,7 @@ export class MovieService {
     }
 
     const url = `${this.moviesUrl}/by-term?term=${term}`;
-    console.log(url);
+
     return this.httpClient.get<Movie[]>(url)
       .pipe(
         catchError(this.messageService.handleError<Movie[]>())
