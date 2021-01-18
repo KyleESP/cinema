@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   submit(): void {
     const userDetails = new User(this.email, this.password);
-    this.authenticationService.login(userDetails);
+    this.authenticationService.login(userDetails)
+      .subscribe(() => { this.router.navigate(['/admin/movies']).then(null); });
   }
 }
