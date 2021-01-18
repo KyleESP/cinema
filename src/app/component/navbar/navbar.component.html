@@ -10,11 +10,11 @@
         <a class="nav-link" routerLink="/categories">Catégories de films</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/movies" *ngIf="true">Tous les films</a>
+        <a class="nav-link" [routerLink]="!currentUser ? '/movies' : 'admin/movies'">Tous les films</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/login" *ngIf="true">Se connecter</a>
-        <a class="nav-link" *ngIf="false">Se déconnecter</a>
+        <a class="nav-link" routerLink="/login" *ngIf="!currentUser">Se connecter</a>
+        <a class="nav-link" href="#" *ngIf="currentUser" (click)="logout()">Se déconnecter</a>
       </li>
     </ul>
   </div>

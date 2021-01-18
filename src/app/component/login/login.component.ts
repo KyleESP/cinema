@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   password!: string;
 
   constructor(private authenticationService: AuthenticationService, private router: Router) {
-    // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']).then(null);
     }

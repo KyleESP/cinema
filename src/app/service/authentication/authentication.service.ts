@@ -19,22 +19,25 @@ export class AuthenticationService {
   };
 
   constructor(private httpClient: HttpClient, private messageService: MessageService) {
-    const currentUserStorage = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    this.currentUserSubject = new BehaviorSubject<User | null>(currentUserStorage);
-    this.currentUser = this.currentUserSubject.asObservable();
+    const currentUserStorage = localStorage.getItem('currentUser');
+    if (currentUserStorage) {
+      this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(currentUserStorage));
+      this.currentUser = this.currentUserSubject.asObservable();
+    }
   }
 
   get currentUserValue(): User | null {
-    return this.currentUserSubject.value;
+    return this.currentUserSubject?.value;
   }
 
   login(user: User): Observable<User> {
     const url = this.usersUrl + '/login';
+    console.log('aaa');
 
     return this.httpClient.post<User>(url, user, this.httpOptions)
       .pipe(
         map((u) => {
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(u));
           this.currentUserSubject.next(u);
           return u;
         }),
@@ -44,7 +47,6 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
