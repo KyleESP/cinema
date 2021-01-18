@@ -23,7 +23,7 @@ export class MovieService {
 
     return this.httpClient.get<Movie[]>(url)
       .pipe(
-        catchError(this.handleError<Movie[]>())
+        catchError(this.messageService.handleError<Movie[]>())
       );
   }
 
@@ -32,7 +32,7 @@ export class MovieService {
 
     return this.httpClient.get<Movie[]>(url)
       .pipe(
-        catchError(this.handleError<Movie[]>())
+        catchError(this.messageService.handleError<Movie[]>())
       );
   }
 
@@ -45,23 +45,7 @@ export class MovieService {
     console.log(url);
     return this.httpClient.get<Movie[]>(url)
       .pipe(
-        catchError(this.handleError<Movie[]>())
+        catchError(this.messageService.handleError<Movie[]>())
       );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(result?: T): any {
-    return (error: any): Observable<T> => {
-      console.error(error);
-
-      const httpError = error.error;
-      this.messageService.add(httpError.message, 'danger');
-
-      return of(result as T);
-    };
   }
 }

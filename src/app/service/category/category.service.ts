@@ -21,23 +21,7 @@ export class CategoryService {
   getCategories(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(this.categoriesUrl)
       .pipe(
-        catchError(this.handleError<Category[]>())
+        catchError(this.messageService.handleError<Category[]>())
       );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(result?: T): any {
-    return (error: any): Observable<T> => {
-      console.error(error);
-
-      const httpError = error.error;
-      this.messageService.add(httpError.message, 'danger');
-
-      return of(result as T);
-    };
   }
 }

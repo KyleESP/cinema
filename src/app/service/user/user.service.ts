@@ -24,23 +24,7 @@ export class UserService {
     return this.httpClient.post<User>(url, user, this.httpOptions)
       .pipe(
         tap(() => this.messageService.add('Connexion réussie !', 'success')),
-        catchError(this.handleError<User>())
+        catchError(this.messageService.handleError<User>())
       );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(result?: T): any {
-    return (error: any): Observable<T> => {
-      console.error(error);
-
-      const httpError = error.error;
-      this.messageService.add(httpError.message, 'danger');
-
-      return of(result as T);
-    };
   }
 }
