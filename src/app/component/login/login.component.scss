@@ -1,7 +1,50 @@
-#login-box {
-  max-width: 600px;
-  height: 320px;
-  #login-form {
-    padding: 20px;
+#loginCard {
+  margin-top: 5%;
+  margin-left: 37.5%;
+  padding: 2%;
+  background-color: #222A35;
+  border-radius: 5px;
+
+  /* label color */
+  .input-field label {
+    color: #eeeeee ;
+  }
+
+  /* label focus color */
+  .input-field input:focus + label {
+    color: #25c19c;
+  }
+
+  /* input text color */
+  .input-field input {
+    color: #eeeeee;
+  }
+
+  /* label underline focus color */
+  .input-field input:focus {
+    border-bottom: 1px solid #25c19c;
+    box-shadow: 0 1px 0 0 #25c19c;
+  }
+
+  /* icon prefix color */
+  .input-field .prefix {
+    color: #eeeeee;
+  }
+
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #25c19c;
+  }
+
+  #loginTitle {
+    color: #eeeeee;
+    text-align: center;
+  }
+
+  #loginButton {
+    display: block;
+    margin: 0 auto;
   }
 }
+
+
