@@ -3,3 +3,4 @@
   <small>Durée : {{movie.duration}} | Date de sortie : {{movie.releaseDate}}</small>
 </div>
 <p class="mb-1">Budget : {{movie.budget}} | Montant de la recette : {{movie.revenueAmount}}</p>
+<a *ngIf="isManageable" (click)="deleteMovie()" class="waves-effect waves-light btn">Supprimer</a>

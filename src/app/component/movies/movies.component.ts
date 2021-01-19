@@ -12,6 +12,7 @@ export class MoviesComponent implements OnInit {
 
   @Input() movies?: Movie[];
   @Input() movies$?: Observable<Movie[]>;
+  @Input() isManageable = false;
 
   constructor(private movieService: MovieService) { }
 
@@ -24,5 +25,9 @@ export class MoviesComponent implements OnInit {
   getMovies(): void {
       this.movieService.getMovies()
         .subscribe(movies => this.movies = movies);
+  }
+
+  clear(index: number): void {
+    this.movies?.splice(index, 1);
   }
 }

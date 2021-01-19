@@ -48,4 +48,15 @@ export class MovieService {
         catchError(this.messageService.handleError<Movie[]>())
       );
   }
+
+  deleteMovie(movie: Movie | number): Observable<Movie> {
+    const id = typeof movie === 'number' ? movie : movie.id;
+    const url = `${this.moviesUrl}/${id}`;
+
+    return this.httpClient.delete<Movie>(url, this.httpOptions)
+      .pipe(
+        catchError(this.messageService.handleError<Movie>())
+    );
+  }
+
 }
