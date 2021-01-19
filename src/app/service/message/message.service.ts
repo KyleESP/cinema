@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
+import * as M from 'materialize-css';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-  messages = Array<{message: string, type: string}>();
 
-  add(message: string, type: string): void {
-    this.messages.push({message, type});
+  colorsMap: Map<string, string>;
+
+  constructor() {
+    this.colorsMap = new Map([
+      ['success', 'green'],
+      ['error', 'red lighten-1']
+    ]);
   }
 
-  clear(index: number): void {
-    this.messages.splice(index, 1);
+  add(message: string, type: string): void {
+    M.toast({html: message, classes: `${this.colorsMap.get(type)} rounded`});
   }
 
   /**
@@ -28,7 +33,7 @@ export class MessageService {
       const errors = error.errors;
 
       errors.forEach((e: any) => {
-        this.add(e.message, 'danger');
+        this.add(e.message, 'error');
       });
 
       return of(result as T);

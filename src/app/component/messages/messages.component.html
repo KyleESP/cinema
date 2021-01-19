@@ -1,6 +1,0 @@
-<div *ngFor='let message of messageService.messages; let i = index' class="alert alert-{{ message.type }} alert-dismissible fade show" role="alert">
-  {{ message.message }}
-  <button (click)="messageService.clear(i)" type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>

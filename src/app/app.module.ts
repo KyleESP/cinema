@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { MoviesComponent } from './component/movies/movies.component';
 import { LoginComponent } from './component/login/login.component';
-import { MessagesComponent } from './component/messages/messages.component';
 import { CategoriesComponent } from './component/categories/categories.component';
 import { CategoryMoviesComponent } from './component/category-movies/category-movies.component';
 import { MovieSearchComponent } from './component/movie-search/movie-search.component';
@@ -24,7 +23,6 @@ import { ActorSearchComponent } from './component/actor-search/actor-search.comp
     NavbarComponent,
     MoviesComponent,
     LoginComponent,
-    MessagesComponent,
     CategoriesComponent,
     CategoryMoviesComponent,
     MovieSearchComponent,
