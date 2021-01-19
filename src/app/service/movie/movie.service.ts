@@ -58,5 +58,4 @@ export class MovieService {
         catchError(this.messageService.handleError<Movie>())
     );
   }
-
 }

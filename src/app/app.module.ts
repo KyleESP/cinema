@@ -14,6 +14,9 @@ import { CategoryMoviesComponent } from './component/category-movies/category-mo
 import { MovieSearchComponent } from './component/movie-search/movie-search.component';
 import { MovieItemComponent } from './component/movie-item/movie-item.component';
 import { MoviesAdminComponent } from './component/movies-admin/movies-admin.component';
+import { ActorsComponent } from './component/actors/actors.component';
+import { ActorItemComponent } from './component/actor-item/actor-item.component';
+import { ActorSearchComponent } from './component/actor-search/actor-search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { MoviesAdminComponent } from './component/movies-admin/movies-admin.comp
     CategoryMoviesComponent,
     MovieSearchComponent,
     MovieItemComponent,
-    MoviesAdminComponent
+    MoviesAdminComponent,
+    ActorsComponent,
+    ActorItemComponent,
+    ActorSearchComponent
   ],
   imports: [
     BrowserModule,
