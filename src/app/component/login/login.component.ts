@@ -8,7 +8,7 @@ import { AuthenticationService } from '../../service/authentication/authenticati
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   email!: string;
   password!: string;
@@ -17,9 +17,6 @@ export class LoginComponent implements OnInit {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']).then(null);
     }
-  }
-
-  ngOnInit(): void {
   }
 
   submit(): void {
