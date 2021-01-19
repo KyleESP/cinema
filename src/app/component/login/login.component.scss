@@ -1,3 +1,5 @@
+@import 'src/styles.scss';
+
 #loginCard {
   margin-top: 5%;
   margin-left: 37.5%;
@@ -5,39 +7,32 @@
   background-color: #222A35;
   border-radius: 5px;
 
-  /* label color */
-  .input-field label {
-    color: #eeeeee ;
-  }
+  .input-field {
+    label {
+      color: $grey-lighten;
+    }
 
-  /* label focus color */
-  .input-field input:focus + label {
-    color: #25c19c;
-  }
+    input {
+      color: $grey-lighten;
+      &:focus {
+        border-bottom: 1px solid $primary-color;
+        box-shadow: 0 1px 0 0 $primary-color;
+        & + label {
+          color: $primary-color;
+        }
+      }
+    }
 
-  /* input text color */
-  .input-field input {
-    color: #eeeeee;
-  }
-
-  /* label underline focus color */
-  .input-field input:focus {
-    border-bottom: 1px solid #25c19c;
-    box-shadow: 0 1px 0 0 #25c19c;
-  }
-
-  /* icon prefix color */
-  .input-field .prefix {
-    color: #eeeeee;
-  }
-
-  /* icon prefix focus color */
-  .input-field .prefix.active {
-    color: #25c19c;
+    .prefix {
+      color: $grey-lighten;
+      &.active {
+        color: $primary-color;
+      }
+    }
   }
 
   #loginTitle {
-    color: #eeeeee;
+    color: $grey-lighten;
     text-align: center;
   }
 
@@ -46,5 +41,3 @@
     margin: 0 auto;
   }
 }
-
-
