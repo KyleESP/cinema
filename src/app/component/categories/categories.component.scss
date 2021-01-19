@@ -1,0 +1,17 @@
+.card{
+  margin-top: 5%;
+  margin-left: 5%;
+
+  .card-title {
+    color: #222A35;
+  }
+
+  .card-action a {
+    color: #25c19c !important;
+  }
+
+  .card-image img {
+    height: 250px;
+    object-fit: cover;
+  }
+}

@@ -1,23 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="/categories">Cinema</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/categories">Catégories de films</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="!currentUser ? '/movies' : 'admin/movies'">Tous les films</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/actors">Acteurs</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/login" *ngIf="!currentUser">Se connecter</a>
-        <a class="nav-link" href="#" *ngIf="currentUser" (click)="logout()">Se déconnecter</a>
+<nav>
+  <div class="nav-wrapper red accent-2">
+    <a routerLink="/categories" class="brand-logo center">Cinema</a>
+    <ul class="left hide-on-med-and-down">
+      <li routerLinkActive="active"><a routerLink="/categories">Catégories de films</a></li>
+      <li routerLinkActive="active"><a [routerLink]="!currentUser ? '/movies' : 'admin/movies'">Films</a></li>
+      <li routerLinkActive="active"><a routerLink="/actors">Acteurs</a></li>
+      <li routerLinkActive="active">
+        <a routerLink="/login" *ngIf="!currentUser">Se connecter</a>
+        <a href="#" *ngIf="currentUser" (click)="logout()">Se déconnecter</a>
       </li>
     </ul>
   </div>
