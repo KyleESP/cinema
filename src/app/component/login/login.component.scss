@@ -1,11 +1,15 @@
 @import 'src/styles';
 
-#loginCard {
-  margin-top: 5%;
-  margin-left: 37.5%;
+#login-card {
+  float: none;
+  margin: 5% auto 0 auto;
   padding: 2%;
   background-color: #222A35;
   border-radius: 5px;
+
+  .login-title {
+    color: $grey-lighten;
+  }
 
   .input-field {
     label {
@@ -29,15 +33,5 @@
         color: $primary-color;
       }
     }
-  }
-
-  #loginTitle {
-    color: $grey-lighten;
-    text-align: center;
-  }
-
-  #loginButton {
-    display: block;
-    margin: 0 auto;
   }
 }

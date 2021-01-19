@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: #25C19C;
+
+$grey-lighten: #EEEEEE;
+
 html {
   background-color: #F0F0F0;
 }
 
-$primary-color: #25C19C;
-
-$grey-lighten: #EEEEEE;
+.btn.waves-effect {
+  background-color: $primary-color;
+}
