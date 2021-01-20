@@ -1,0 +1,22 @@
+@import 'src/styles';
+
+.collection-item {
+  border-bottom: 1px solid #E0E0E0 !important;
+
+  .row {
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  #movie-item-title {
+    color: $grey-dark;
+    font-size: 1.40rem;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  #movie-item-text {
+    color: $grey-dark;
+  }
+}
