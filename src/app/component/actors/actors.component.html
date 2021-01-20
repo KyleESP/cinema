@@ -1,12 +1,8 @@
-<div *ngIf="actors && actors.length; else no_actors" class="list-group">
-  <div *ngFor="let actor of actors; let i = index" class="list-group-item">
-    <app-actor-item [actor]="actor"></app-actor-item>
-  </div>
+<div *ngIf="actors && actors.length; else no_actors" class="collection">
+  <app-actor-item *ngFor="let actor of actors" [actor]="actor"></app-actor-item>
 </div>
 <ng-template #no_actors>
-  <div *ngIf="actors$ && (actors$ | async)?.length" class="list-group">
-    <div *ngFor="let actor of actors$ | async" class="list-group-item">
-      <app-actor-item [actor]="actor"></app-actor-item>
-    </div>
+  <div *ngIf="actors$ && (actors$ | async)?.length" class="collection">
+    <app-actor-item *ngFor="let actor of actors$ | async" [actor]="actor"></app-actor-item>
   </div>
 </ng-template>

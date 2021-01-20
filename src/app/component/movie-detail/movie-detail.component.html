@@ -1,6 +1,13 @@
 <div *ngIf="movie">
-  Durée : {{movie.duration}} <br>
-  Date de sortie : {{movie.releaseDate}} <br>
-  Budget : {{movie.budget}} <br>
-  Montant de la recette : {{movie.revenueAmount}}
+  Durée : {{movie.duration | hoursMinutes}}<br>
+  Date de sortie : {{movie.releaseDate | date: 'dd/MM/yyyy'}}<br>
+  De {{movie.director.firstName}} {{movie.director.lastName}}<br>
+  Budget : {{movie.budget | thousandSuffix: 2 }}<br>
+  Montant de la recette : {{movie.revenueAmount | thousandSuffix: 2}}<br>
+  <ng-template [ngIf]="movie.figures.length">
+    Avec :
+    <a *ngFor="let figure of movie.figures; let i = index;" routerLink="/actor-detail/{{figure.actor!.id}}">
+      {{figure.actor!.firstName}} {{figure.actor!.lastName}} (Rôle : {{figure.name}}) {{i != movie.figures.length - 1 ? ', ' : ''}}
+    </a>
+  </ng-template>
 </div>

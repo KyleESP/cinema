@@ -1,3 +1,6 @@
-<div class="d-flex w-100 justify-content-between">
-  <h5 class="mb-1">{{actor.firstName}} {{actor.lastName}}</h5>
-</div>
+<li class="collection-item">
+  <span class="title">{{actor.firstName}} {{actor.lastName}}</span>
+  <a routerLink="/actor-detail/{{actor.id}}" class="btn-floating waves-effect waves-light">
+    <i class="material-icons">add</i>
+  </a>
+</li>
