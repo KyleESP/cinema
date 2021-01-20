@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as M from 'materialize-css';
+import { Toast } from 'materialize-css';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -17,7 +17,8 @@ export class MessageService {
   }
 
   add(message: string, type: string): void {
-    M.toast({html: message, classes: `${this.colorsMap.get(type)} rounded`});
+    // tslint:disable-next-line:no-unused-expression
+    new Toast({html: message, classes: `${this.colorsMap.get(type)} rounded`});
   }
 
   /**
