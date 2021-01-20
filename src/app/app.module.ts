@@ -19,6 +19,7 @@ import { ActorSearchComponent } from './component/actor-search/actor-search.comp
 import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
 import { HoursMinutesPipe } from './pipe/hours-minutes/hours-minutes.pipe';
 import { ThousandSuffixPipe } from './pipe/thousand-suffix/thousand-suffix.pipe';
+import { ActorDetailComponent } from './component/actor-detail/actor-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ThousandSuffixPipe } from './pipe/thousand-suffix/thousand-suffix.pipe'
     ActorSearchComponent,
     MovieDetailComponent,
     HoursMinutesPipe,
-    ThousandSuffixPipe
+    ThousandSuffixPipe,
+    ActorDetailComponent
   ],
   imports: [
     BrowserModule,

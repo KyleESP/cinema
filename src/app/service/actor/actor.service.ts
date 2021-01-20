@@ -18,6 +18,14 @@ export class ActorService {
 
   constructor(private httpClient: HttpClient, private messageService: MessageService) { }
 
+  getActor(id: string | null): Observable<Actor> {
+    const url = `${this.actorsUrl}/${id}`;
+
+    return this.httpClient.get<Actor>(url).pipe(
+      catchError(this.messageService.handleError<Actor>())
+    );
+  }
+
   getActors(): Observable<Actor[]> {
     return this.httpClient.get<Actor[]>(this.actorsUrl)
       .pipe(

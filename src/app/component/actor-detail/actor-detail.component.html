@@ -1,0 +1,13 @@
+<div *ngIf="actor">
+  {{actor.firstName}} {{actor.lastName}}<br>
+  Date de naissance : {{actor.birthdayDate | date: 'dd/MM/yyyy'}}<br>
+  <ng-template [ngIf]="actor.deathdayDate">
+    Date de décès : {{actor.deathdayDate | date: 'dd/MM/yyyy'}}<br>
+  </ng-template>
+  <ng-template [ngIf]="actor.figures.length">
+    Filmographie :
+    <a *ngFor="let figure of actor.figures; let i = index;" routerLink="/movie-detail/{{figure.movie!.id}}">
+      {{figure.movie!.title}} (Rôle : {{figure.name}}) {{i != actor.figures.length - 1 ? ', ' : ''}}
+    </a>
+  </ng-template>
+</div>
