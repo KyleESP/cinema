@@ -2,12 +2,20 @@
   <div class="nav-wrapper">
     <a routerLink="/categories" class="brand-logo center">Cinema</a>
     <ul class="left hide-on-med-and-down">
-      <li routerLinkActive="active"><a routerLink="/categories">Catégories de films</a></li>
-      <li routerLinkActive="active"><a [routerLink]="!currentUser ? '/movies' : 'admin/movies'">Films</a></li>
-      <li routerLinkActive="active"><a routerLink="/actors">Acteurs</a></li>
+      <li *ngIf="!currentUser" routerLinkActive="active">
+        <a routerLink="/categories">Catégories de films</a>
+      </li>
       <li routerLinkActive="active">
-        <a routerLink="/login" *ngIf="!currentUser">Se connecter</a>
-        <a href="#" *ngIf="currentUser" (click)="logout()">Se déconnecter</a>
+        <a *ngIf="!currentUser" routerLink="/movies">Films</a>
+        <a *ngIf="currentUser" routerLink="/admin/movies">Gestion des films</a>
+      </li>
+      <li routerLinkActive="active">
+        <a *ngIf="!currentUser" routerLink="/actors">Acteurs</a>
+        <a *ngIf="currentUser" routerLink="/admin/figures">Gestion personnages</a>
+      </li>
+      <li routerLinkActive="active">
+        <a *ngIf="!currentUser" routerLink="/login">Se connecter</a>
+        <a *ngIf="currentUser" href="#" (click)="logout()">Se déconnecter</a>
       </li>
     </ul>
   </div>
