@@ -16,6 +16,7 @@ import { MoviesAdminComponent } from './component/movies-admin/movies-admin.comp
 import { ActorsComponent } from './component/actors/actors.component';
 import { ActorItemComponent } from './component/actor-item/actor-item.component';
 import { ActorSearchComponent } from './component/actor-search/actor-search.component';
+import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ActorSearchComponent } from './component/actor-search/actor-search.comp
     MoviesAdminComponent,
     ActorsComponent,
     ActorItemComponent,
-    ActorSearchComponent
+    ActorSearchComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

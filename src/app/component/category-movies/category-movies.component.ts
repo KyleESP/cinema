@@ -26,5 +26,4 @@ export class CategoryMoviesComponent implements OnInit {
     this.movieService.getMoviesByCategoryId(categoryId)
       .subscribe(movies => this.movies = movies);
   }
-
 }

@@ -18,10 +18,16 @@ export class MovieService {
 
   constructor(private httpClient: HttpClient, private messageService: MessageService) { }
 
-  getMovies(): Observable<Movie[]> {
-    const url = this.moviesUrl;
+  getMovie(id: string | null): Observable<Movie> {
+    const url = `${this.moviesUrl}/${id}`;
 
-    return this.httpClient.get<Movie[]>(url)
+    return this.httpClient.get<Movie>(url).pipe(
+      catchError(this.messageService.handleError<Movie>())
+    );
+  }
+
+  getMovies(): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(this.moviesUrl)
       .pipe(
         catchError(this.messageService.handleError<Movie[]>())
       );

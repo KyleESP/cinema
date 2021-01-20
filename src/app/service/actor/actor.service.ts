@@ -19,9 +19,7 @@ export class ActorService {
   constructor(private httpClient: HttpClient, private messageService: MessageService) { }
 
   getActors(): Observable<Actor[]> {
-    const url = this.actorsUrl;
-
-    return this.httpClient.get<Actor[]>(url)
+    return this.httpClient.get<Actor[]>(this.actorsUrl)
       .pipe(
         catchError(this.messageService.handleError<Actor[]>())
       );
@@ -33,7 +31,7 @@ export class ActorService {
     }
 
     const url = `${this.actorsUrl}/by-term?term=${term}`;
-    console.log(url);
+
     return this.httpClient.get<Actor[]>(url)
       .pipe(
         catchError(this.messageService.handleError<Actor[]>())

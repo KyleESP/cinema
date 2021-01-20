@@ -7,6 +7,7 @@ import { MovieSearchComponent } from './component/movie-search/movie-search.comp
 import {AuthGuard} from './guard/auth.guard';
 import {MoviesAdminComponent} from './component/movies-admin/movies-admin.component';
 import {ActorSearchComponent} from './component/actor-search/actor-search.component';
+import {MovieDetailComponent} from './component/movie-detail/movie-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo : '/categories', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'category-movies/:categoryId', component: CategoryMoviesComponent },
   { path: 'movies', component: MovieSearchComponent },
   { path: 'actors', component: ActorSearchComponent },
+  { path: 'movie-detail/:movieId', component: MovieDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin/movies', component: MoviesAdminComponent, canActivate: [AuthGuard] },
 ];

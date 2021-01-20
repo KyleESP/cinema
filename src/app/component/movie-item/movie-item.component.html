@@ -1,6 +1,10 @@
-<div class="d-flex w-100 justify-content-between">
-  <h5 class="mb-1">{{movie.title}}</h5>
-  <small>Durée : {{movie.duration}} | Date de sortie : {{movie.releaseDate}}</small>
-</div>
-<p class="mb-1">Budget : {{movie.budget}} | Montant de la recette : {{movie.revenueAmount}}</p>
-<a *ngIf="isManageable" (click)="deleteMovie()" class="waves-effect waves-light btn">Supprimer</a>
+<li class="collection-item">
+  <span class="title">{{movie.title}}</span>
+  <p>Durée : {{movie.duration}} <br>
+    Date de sortie : {{movie.releaseDate}} <br>
+    Budget : {{movie.budget}} <br>
+    Montant de la recette : {{movie.revenueAmount}}
+  </p>
+  <a routerLink="/movie-detail/{{movie.id}}" class="btn-floating waves-effect waves-light"><i class="material-icons">add</i></a>
+  <a *ngIf="isManageable" (click)="deleteMovie()" href="#" class="secondary-content"><i class="material-icons">delete</i></a>
+</li>

@@ -1,12 +1,10 @@
-<div *ngIf="movies && movies.length; else no_movies" class="list-group">
-  <div *ngFor="let movie of movies; let i = index" class="list-group-item">
-    <app-movie-item (delete)="clear(i)" [movie]="movie" [isManageable]="isManageable"></app-movie-item>
-  </div>
+<div *ngIf="movies && movies.length; else no_movies" class="collection">
+  <app-movie-item *ngFor="let movie of movies; let i = index" (delete)="clear(i)"
+                  [movie]="movie" [isManageable]="isManageable"></app-movie-item>
 </div>
 <ng-template #no_movies>
-  <div *ngIf="movies$ && (movies$ | async)?.length" class="list-group">
-    <div *ngFor="let movie of movies$ | async" class="list-group-item">
-      <app-movie-item [movie]="movie" [isManageable]="isManageable"></app-movie-item>
-    </div>
+  <div *ngIf="movies$ && (movies$ | async)?.length" class="collection">
+    <app-movie-item *ngFor="let movie of movies$ | async"
+                    [movie]="movie" [isManageable]="isManageable"></app-movie-item>
   </div>
 </ng-template>
