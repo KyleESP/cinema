@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MovieService} from '../../service/movie/movie.service';
 import {Movie} from '../../model/movie';
+import {User} from '../../model/user';
+import {AuthenticationService} from '../../service/authentication/authentication.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -11,8 +13,11 @@ import {Movie} from '../../model/movie';
 export class MovieDetailComponent implements OnInit {
 
   movie!: Movie;
+  currentUser!: User | null;
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private authenticationService: AuthenticationService) {
+    this.authenticationService.currentUser?.subscribe((user) => this.currentUser = user);
+  }
 
   ngOnInit(): void {
     this.getMovie();

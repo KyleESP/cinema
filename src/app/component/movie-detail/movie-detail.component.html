@@ -1,13 +1,19 @@
-<div *ngIf="movie">
-  Durée : {{movie.duration | hoursMinutes}}<br>
-  Date de sortie : {{movie.releaseDate | date: 'dd/MM/yyyy'}}<br>
-  De {{movie.director.firstName}} {{movie.director.lastName}}<br>
-  Budget : {{movie.budget | thousandSuffix: 2 }}<br>
-  Montant de la recette : {{movie.revenueAmount | thousandSuffix: 2}}<br>
+<div id="arrow-back">
+  <a *ngIf="!currentUser" routerLink="/movies" class="waves-effect waves-light"><i class="material-icons">arrow_back</i> Retour aux films</a>
+  <a *ngIf="currentUser" routerLink="/admin/movies" class="waves-effect waves-light"><i class="material-icons">arrow_back</i> Retour aux films</a>
+</div>
+<div *ngIf="movie" class="card-panel">
+  <p id="movie-title">{{movie.title}}</p>
+  <p>Réalisateur : {{movie.director.firstName}} {{movie.director.lastName}}</p>
+  <p>Date de sortie : {{movie.releaseDate | date: 'dd/MM/yyyy'}}</p>
+  <p>Durée : {{movie.duration | hoursMinutes}}</p>
+  <p>Budget : {{movie.budget | thousandSuffix: 2 }}</p>
+  <p>Montant de la recette : {{movie.revenueAmount | thousandSuffix: 2}}</p>
   <ng-template [ngIf]="movie.figures.length">
-    Avec :
-    <a *ngFor="let figure of movie.figures; let i = index;" routerLink="/actor-detail/{{figure.actor!.id}}">
-      {{figure.actor!.firstName}} {{figure.actor!.lastName}} (Rôle : {{figure.name}}) {{i != movie.figures.length - 1 ? ', ' : ''}}
-    </a>
+    <p>Acteurs principaux :
+      <a *ngFor="let figure of movie.figures; let i = index;" routerLink="/actor-detail/{{figure.actor!.id}}">
+        {{figure.actor!.firstName}} {{figure.actor!.lastName}} (Rôle : {{figure.name}}) {{i != movie.figures.length - 1 ? ', ' : ''}}
+      </a>
+    </p>
   </ng-template>
 </div>

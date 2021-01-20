@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Actor} from '../../model/actor';
 import {ActorService} from '../../service/actor/actor.service';
+import {User} from '../../model/user';
+import {AuthenticationService} from '../../service/authentication/authentication.service';
 
 @Component({
   selector: 'app-actor-detail',
@@ -11,8 +13,11 @@ import {ActorService} from '../../service/actor/actor.service';
 export class ActorDetailComponent implements OnInit {
 
   actor!: Actor;
+  currentUser!: User | null;
 
-  constructor(private route: ActivatedRoute, private actorService: ActorService) { }
+  constructor(private route: ActivatedRoute, private actorService: ActorService, private authenticationService: AuthenticationService) {
+    this.authenticationService.currentUser?.subscribe((user) => this.currentUser = user);
+  }
 
   ngOnInit(): void {
     this.getActor();

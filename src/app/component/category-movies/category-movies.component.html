@@ -1,6 +1,9 @@
-<app-movies *ngIf="movies?.length; else no_movies" [movies]="movies"></app-movies>
+<div class="container">
+  <app-movies *ngIf="movies?.length; else no_movies" [movies]="movies"></app-movies>
+</div>
+
 <ng-template #no_movies>
-  <div>
+  <div id="no-movies" class="center-align">
     Il n'y a aucun film dans cette catégorie.
   </div>
 </ng-template>

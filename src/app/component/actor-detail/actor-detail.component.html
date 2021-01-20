@@ -1,13 +1,18 @@
-<div *ngIf="actor">
-  {{actor.firstName}} {{actor.lastName}}<br>
-  Date de naissance : {{actor.birthdayDate | date: 'dd/MM/yyyy'}}<br>
+<div id="arrow-back">
+  <a *ngIf="!currentUser" routerLink="/actors" class="waves-effect waves-light"><i class="material-icons">arrow_back</i>Retour aux acteurs</a>
+  <a *ngIf="currentUser" routerLink="/admin/figures" class="waves-effect waves-light"><i class="material-icons">arrow_back</i>Retour aux acteurs</a>
+</div>
+<div *ngIf="actor" class="card-panel">
+  <p id="actor-name">{{actor.firstName}} {{actor.lastName}}</p>
+  <p>Date de naissance : {{actor.birthdayDate | date: 'dd/MM/yyyy'}}</p>
   <ng-template [ngIf]="actor.deathdayDate">
-    Date de décès : {{actor.deathdayDate | date: 'dd/MM/yyyy'}}<br>
+    <p>Date de décès : {{actor.deathdayDate | date: 'dd/MM/yyyy'}}</p>
   </ng-template>
   <ng-template [ngIf]="actor.figures.length">
-    Filmographie :
-    <a *ngFor="let figure of actor.figures; let i = index;" routerLink="/movie-detail/{{figure.movie!.id}}">
-      {{figure.movie!.title}} (Rôle : {{figure.name}}) {{i != actor.figures.length - 1 ? ', ' : ''}}
-    </a>
+    <p> Filmographie :
+      <a *ngFor="let figure of actor.figures; let i = index;" routerLink="/movie-detail/{{figure.movie!.id}}">
+        {{figure.movie!.title}} (Rôle : {{figure.name}}) {{i != actor.figures.length - 1 ? ', ' : ''}}
+      </a>
+    </p>
   </ng-template>
 </div>

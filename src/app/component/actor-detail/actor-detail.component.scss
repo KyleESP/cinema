@@ -1,0 +1,34 @@
+@import 'src/styles';
+
+#arrow-back {
+  margin-top: 2%;
+  margin-left: 2%;
+
+  a {
+    color: dimgray;
+    i {
+      margin-right: 5px;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.card-panel {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  background-color: white;
+
+  #actor-name {
+    margin-top: 2%;
+    font-size: 2rem;
+  }
+
+  p {
+    color: $grey-dark;
+    a {
+      color: $primary-color;
+    }
+  }
+}
