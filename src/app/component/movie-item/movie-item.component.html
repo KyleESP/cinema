@@ -1,9 +1,7 @@
 <li class="collection-item">
   <span class="title">{{movie.title}}</span>
-  <p>Durée : {{movie.duration}} <br>
-    Date de sortie : {{movie.releaseDate}} <br>
-    Budget : {{movie.budget}} <br>
-    Montant de la recette : {{movie.revenueAmount}}
+  <p>
+    Film de {{movie.director.firstName}} {{movie.director.lastName}} ({{movie.releaseDate}})<br>
   </p>
   <a routerLink="/movie-detail/{{movie.id}}" class="btn-floating waves-effect waves-light"><i class="material-icons">add</i></a>
   <a *ngIf="isManageable" (click)="deleteMovie()" href="#" class="secondary-content"><i class="material-icons">delete</i></a>
