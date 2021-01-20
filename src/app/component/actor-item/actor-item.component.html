@@ -1,6 +1,3 @@
-<li class="collection-item">
-  <span class="title">{{actor.firstName}} {{actor.lastName}}</span>
-  <a routerLink="/actor-detail/{{actor.id}}" class="btn-floating waves-effect waves-light">
-    <i class="material-icons">add</i>
-  </a>
-</li>
+<a routerLink="/actor-detail/{{actor.id}}" class="collection-item">
+  <h6 id="actor-item-name">{{actor.firstName}} {{actor.lastName}}</h6>
+</a>

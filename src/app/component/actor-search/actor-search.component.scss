@@ -1,0 +1,22 @@
+@import 'src/styles';
+
+nav {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  border-radius: 40px;
+  background-color: $grey-dark;
+
+  .nav-wrapper .input-field input[type=search] {
+    border-radius: 40px;
+
+    &:focus {
+      color: $grey-dark;
+    }
+
+    &:not(:focus) {
+      color: $grey-lighten;
+    }
+  }
+}

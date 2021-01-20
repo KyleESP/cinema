@@ -1,0 +1,15 @@
+@import 'src/styles';
+
+.collection-item {
+  border-bottom: 1px solid #E0E0E0 !important;
+
+  .row {
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  #actor-item-name{
+    color: $grey-dark;
+  }
+}
