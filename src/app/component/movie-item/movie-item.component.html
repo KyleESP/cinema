@@ -2,7 +2,7 @@
   <div class="col s6 m6">
     <p id="movie-item-title">{{movie.title}}</p>
     <p id="movie-item-text">
-      Film de {{movie.director.firstName}} {{movie.director.lastName}} ({{movie.releaseDate}})<br>
+      Film de {{movie.director.firstName}} {{movie.director.lastName}} ({{movie.releaseDate | date: 'dd/MM/yyyy'}})<br>
     </p>
   </div>
   <div class="col s6 m6">
