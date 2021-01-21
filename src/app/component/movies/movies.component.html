@@ -8,7 +8,7 @@
 <ng-template #no_movies>
   <div class="container-{{isManageable}}">
     <h4 *ngIf="isManageable" class="movie-list-title center-align">Liste des films</h4>
-    <div *ngIf="movies$ && (movies$ | async)?.length" class="collection">
+    <div *ngIf="movies$ && (movies$ | async)?.length" [ngClass]="{'collection': (movies$ | async)}">
       <app-movie-item *ngFor="let movie of movies$ | async"
                       [movie]="movie" [isManageable]="isManageable"></app-movie-item>
     </div>
