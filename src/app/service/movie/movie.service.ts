@@ -47,6 +47,7 @@ export class MovieService {
       return of([]);
     }
 
+    term = encodeURI(term);
     const url = `${this.moviesUrl}/by-term?term=${term}`;
 
     return this.httpClient.get<Movie[]>(url)

@@ -38,6 +38,7 @@ export class ActorService {
       return of([]);
     }
 
+    term = encodeURI(term);
     const url = `${this.actorsUrl}/by-term?term=${term}`;
 
     return this.httpClient.get<Actor[]>(url)
