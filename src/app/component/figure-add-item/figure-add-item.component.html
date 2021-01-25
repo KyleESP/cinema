@@ -1,0 +1,41 @@
+<div id="arrow-back">
+  <a routerLink="/admin/figures" class="waves-effect waves-light"><i class="material-icons">arrow_back</i> Retour aux personnages</a>
+</div>
+<h4 class="figure-add-title center-align">Ajouter un personnage</h4>
+<div class="container">
+    <form class="col s12" [formGroup]="figureForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col s12">
+        Film :
+        <div class="input-field inline">
+          <select id="movie" formControlName="movieId" required="required">
+            <option *ngFor="let movie of movies" value="{{movie.id}}">{{ movie.title }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col s12">
+          Acteur :
+          <div class="input-field inline">
+            <select id="actor" formControlName="actorId" required="required">
+              <option *ngFor="let actor of actors" value="{{actor.id}}">{{ actor.firstName }} {{ actor.lastName }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col s12">
+        Nom du personnage :
+        <div class="input-field inline">
+          <input id="name" type="text" formControlName="name" class="validate" required="required">
+          <label for="name">Nom du personnage</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row center">
+      <button class="btn waves-effect waves-light" type="submit" [disabled]="!figureForm.valid">Ajouter</button>
+    </div>
+  </form>
+</div>

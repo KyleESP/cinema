@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { ThousandSuffixPipe } from './pipe/thousand-suffix/thousand-suffix.pipe'
 import { ActorDetailComponent } from './component/actor-detail/actor-detail.component';
 import { FiguresAdminComponent } from './component/figures-admin/figures-admin.component';
 import { FigureItemComponent } from './component/figure-item/figure-item.component';
+import { FigureAddItemComponent } from './component/figure-add-item/figure-add-item.component';
 
 @NgModule({
   declarations: [
@@ -42,14 +43,16 @@ import { FigureItemComponent } from './component/figure-item/figure-item.compone
     ThousandSuffixPipe,
     ActorDetailComponent,
     FiguresAdminComponent,
-    FigureItemComponent
+    FigureItemComponent,
+    FigureAddItemComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [
   ],
   bootstrap: [AppComponent]

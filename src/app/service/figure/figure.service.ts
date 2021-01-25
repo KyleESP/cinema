@@ -33,6 +33,13 @@ export class FigureService {
       );
   }
 
+  addFigure(figure: object): Observable<any> {
+    return this.httpClient.post<Figure[]>(this.figuresUrl, figure)
+      .pipe(
+        catchError(this.messageService.handleError<Figure[]>())
+      );
+  }
+
   deleteFigure(figure: Figure): Observable<Figure> {
     const actorId = figure.actor !== undefined  ? figure.actor.id : '';
     const movieId = figure.movie !== undefined  ? figure.movie.id : '';

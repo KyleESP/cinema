@@ -1,5 +1,6 @@
 <div class="container">
   <h4 class="figure-list-title center-align">Liste des personnages</h4>
+  <button routerLink="/admin/figures/add" class="btn waves-effect waves-light">Ajouter un personnage</button>
   <div *ngIf="figures && figures.length; else no_figures" class="collection">
     <app-figure-item *ngFor="let figure of figures; let i = index" (delete)="clear(i)"
                     [figure]="figure"></app-figure-item>
@@ -9,6 +10,7 @@
 <ng-template #no_figures>
   <div class="container">
     <h4 class="figure-list-title center-align">Liste des personnages</h4>
+    <button routerLink="/admin/figures/add" class="btn waves-effect waves-light">Ajouter un personnage</button>
     <div *ngIf="figures$ && (figures$ | async)?.length" [ngClass]="{'collection': (figures$ | async)}">
       <app-figure-item *ngFor="let figure of figures$ | async"
                       [figure]="figure"></app-figure-item>
