@@ -33,9 +33,10 @@ export class FigureService {
       );
   }
 
-  deleteFigure(figure: Figure | number): Observable<Figure> {
-    const id = typeof figure === 'number' ? figure : figure.id;
-    const url = `${this.figuresUrl}/${id}`;
+  deleteFigure(figure: Figure): Observable<Figure> {
+    const actorId = figure.actor !== undefined  ? figure.actor.id : '';
+    const movieId = figure.movie !== undefined  ? figure.movie.id : '';
+    const url = `${this.figuresUrl}/${actorId}/${movieId}`;
 
     return this.httpClient.delete<Figure>(url, this.httpOptions)
       .pipe(
