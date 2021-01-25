@@ -1,0 +1,30 @@
+@import 'src/styles';
+
+.collection-item {
+  border-bottom: 1px solid #E0E0E0 !important;
+
+  &.row {
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: #E0E0E0;
+    }
+
+    #figure-item-title {
+      color: $grey-dark;
+      font-size: 1.40rem;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+
+    #figure-item-text {
+      color: $grey-dark;
+    }
+
+    .secondary-content {
+      margin-left: 5%;
+    }
+  }
+}

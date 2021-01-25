@@ -9,6 +9,7 @@ import {MoviesAdminComponent} from './component/movies-admin/movies-admin.compon
 import {ActorSearchComponent} from './component/actor-search/actor-search.component';
 import {MovieDetailComponent} from './component/movie-detail/movie-detail.component';
 import {ActorDetailComponent} from './component/actor-detail/actor-detail.component';
+import {FiguresAdminComponent} from './component/figures-admin/figures-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo : '/categories', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'actor-detail/:actorId', component: ActorDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin/movies', component: MoviesAdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin/figures', component: FiguresAdminComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
