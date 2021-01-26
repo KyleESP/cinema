@@ -15,5 +15,27 @@
 
 .figure-add-title {
   color: $grey-dark;
-  margin-bottom: 5%;
+  margin-bottom: 45px;
+}
+
+#formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+table tr {
+  border: none;
+}
+
+table td {
+  padding: 0;
+}
+
+#formContainer .input-field {
+  margin: 0 !important;
+  margin-left: 25px !important;
+}
+
+#formContainer button {
+  margin-top: 40px;
 }
