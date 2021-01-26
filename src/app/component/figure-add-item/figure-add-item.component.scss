@@ -1,0 +1,41 @@
+@import 'src/styles';
+
+#arrow-back {
+  margin-top: 2%;
+  margin-left: 2%;
+
+  a {
+    color: dimgray;
+    i {
+      margin-right: 5px;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.figure-add-title {
+  color: $grey-dark;
+  margin-bottom: 45px;
+}
+
+#formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+table tr {
+  border: none;
+}
+
+table td {
+  padding: 0;
+}
+
+#formContainer .input-field {
+  margin: 0 !important;
+  margin-left: 25px !important;
+}
+
+#formContainer button {
+  margin-top: 40px;
+}

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,10 @@ import { MovieDetailComponent } from './component/movie-detail/movie-detail.comp
 import { HoursMinutesPipe } from './pipe/hours-minutes/hours-minutes.pipe';
 import { ThousandSuffixPipe } from './pipe/thousand-suffix/thousand-suffix.pipe';
 import { ActorDetailComponent } from './component/actor-detail/actor-detail.component';
+import { FiguresAdminComponent } from './component/figures-admin/figures-admin.component';
+import { FigureItemComponent } from './component/figure-item/figure-item.component';
+import { FigureAddItemComponent } from './component/figure-add-item/figure-add-item.component';
+import { FigureUpdateItemComponent } from './component/figure-update-item/figure-update-item.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +42,19 @@ import { ActorDetailComponent } from './component/actor-detail/actor-detail.comp
     MovieDetailComponent,
     HoursMinutesPipe,
     ThousandSuffixPipe,
-    ActorDetailComponent
+    ActorDetailComponent,
+    FiguresAdminComponent,
+    FigureItemComponent,
+    FigureAddItemComponent,
+    FigureUpdateItemComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [
   ],
   bootstrap: [AppComponent]
