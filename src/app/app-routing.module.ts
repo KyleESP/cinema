@@ -11,6 +11,7 @@ import {MovieDetailComponent} from './component/movie-detail/movie-detail.compon
 import {ActorDetailComponent} from './component/actor-detail/actor-detail.component';
 import {FiguresAdminComponent} from './component/figures-admin/figures-admin.component';
 import {FigureAddItemComponent} from './component/figure-add-item/figure-add-item.component';
+import {FigureUpdateItemComponent} from './component/figure-update-item/figure-update-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo : '/categories', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'admin/movies', component: MoviesAdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/figures', component: FiguresAdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/figures/add', component: FigureAddItemComponent, canActivate: [AuthGuard] },
+  { path: 'admin/figures/update/:idActor/:idMovie', component: FigureUpdateItemComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

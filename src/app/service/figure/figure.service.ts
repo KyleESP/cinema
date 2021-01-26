@@ -18,8 +18,8 @@ export class FigureService {
 
   constructor(private httpClient: HttpClient, private messageService: MessageService) { }
 
-  getFigure(id: string | null): Observable<Figure> {
-    const url = `${this.figuresUrl}/${id}`;
+  getFigure(actorId: string | null, movieId: string | null): Observable<Figure> {
+    const url = `${this.figuresUrl}/${actorId}/${movieId}`;
 
     return this.httpClient.get<Figure>(url).pipe(
       catchError(this.messageService.handleError<Figure>())
@@ -35,6 +35,15 @@ export class FigureService {
 
   addFigure(figure: object): Observable<any> {
     return this.httpClient.post<Figure[]>(this.figuresUrl, figure)
+      .pipe(
+        catchError(this.messageService.handleError<Figure[]>())
+      );
+  }
+
+  updateFigure(actorId: string | undefined, movieId: string | undefined, figure: { actor: { id: any }; movie: { id: any }; name: any })
+    : Observable<Figure> {
+    const url = `${this.figuresUrl}/${actorId}/${movieId}`;
+    return this.httpClient.put<Figure[]>(url, figure)
       .pipe(
         catchError(this.messageService.handleError<Figure[]>())
       );

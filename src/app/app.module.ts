@@ -23,6 +23,7 @@ import { ActorDetailComponent } from './component/actor-detail/actor-detail.comp
 import { FiguresAdminComponent } from './component/figures-admin/figures-admin.component';
 import { FigureItemComponent } from './component/figure-item/figure-item.component';
 import { FigureAddItemComponent } from './component/figure-add-item/figure-add-item.component';
+import { FigureUpdateItemComponent } from './component/figure-update-item/figure-update-item.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FigureAddItemComponent } from './component/figure-add-item/figure-add-i
     ActorDetailComponent,
     FiguresAdminComponent,
     FigureItemComponent,
-    FigureAddItemComponent
+    FigureAddItemComponent,
+    FigureUpdateItemComponent
   ],
     imports: [
         BrowserModule,
